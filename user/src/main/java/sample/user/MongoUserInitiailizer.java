@@ -21,5 +21,13 @@ class MongoUserInitiailizer implements SmartInitializingSingleton {
 
 		this.users.save(new User(1L, "rob@example.com", passsword, "Rob", "Winch")).block();
 		this.users.save(new User(2L, "joe@example.com", passsword, "Joe", "Grandja")).block();
+
+		// @formatter:off
+		this.users.findAll()
+				.doOnNext(user -> user.setPassword("{sha256}" + user.getPassword()))
+				.flatMap(this.users::save)
+				.collectList()
+				.block();
+		// @formatter:on
 	}
 }

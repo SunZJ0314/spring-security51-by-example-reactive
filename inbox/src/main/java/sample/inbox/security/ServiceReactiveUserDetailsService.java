@@ -2,6 +2,7 @@ package sample.inbox.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.userdetails.ReactiveUserDetailsPasswordService;
 import org.springframework.security.core.userdetails.ReactiveUserDetailsService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -15,7 +16,8 @@ import java.util.Collection;
  * @author Rob Winch
  */
 @Component
-public class ServiceReactiveUserDetailsService implements ReactiveUserDetailsService {
+public class ServiceReactiveUserDetailsService implements ReactiveUserDetailsService,
+		ReactiveUserDetailsPasswordService {
 	private final UserService users;
 
 	public ServiceReactiveUserDetailsService(UserService users) {
@@ -25,6 +27,14 @@ public class ServiceReactiveUserDetailsService implements ReactiveUserDetailsSer
 	@Override
 	public Mono<UserDetails> findByUsername(String email) {
 		return this.users.findByEmail(email)
+				.map(CustomUserDetails::new);
+	}
+
+	@Override
+	public Mono<UserDetails> updatePassword(UserDetails user, String newPassword) {
+		return this.users.findByEmail(user.getUsername())
+				.doOnSuccess(u -> u.setPassword(newPassword))
+				.flatMap(this.users::save)
 				.map(CustomUserDetails::new);
 	}
 
