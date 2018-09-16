@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
+import sample.inbox.user.User;
 
 /**
  * @author Rob Winch
@@ -23,7 +24,7 @@ public class SecurityControllerAdvice {
 	}
 
 	@ModelAttribute("currentUser")
-	Principal currentUser(Principal currentUser) {
+	User currentUser(@CurrentUser User currentUser) {
 		return currentUser;
 	}
 }
