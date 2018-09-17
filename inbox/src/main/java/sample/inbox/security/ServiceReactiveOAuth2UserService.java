@@ -38,7 +38,7 @@ public class ServiceReactiveOAuth2UserService
 	}
 
 	private Mono<OidcUser> create(OidcUser user) {
-		return this.users.findByEmail(user.getEmail())
+		return this.users.findById((String) user.getAttributes().get("user_id"))
 			.switchIfEmpty(Mono.error(() -> new IllegalStateException("No user for alias " + user.getName())))
 			.map(u -> new CustomOidcUser(u, user));
 	}
