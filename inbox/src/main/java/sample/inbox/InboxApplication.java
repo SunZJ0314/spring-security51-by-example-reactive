@@ -16,7 +16,7 @@ public class InboxApplication {
 			ServerOAuth2AuthorizedClientRepository authorizedClients) {
 		ServerOAuth2AuthorizedClientExchangeFilterFunction oauth2 = new ServerOAuth2AuthorizedClientExchangeFilterFunction(
 				clientRegistrations, authorizedClients);
-		oauth2.setDefaultOAuth2AuthorizedClient(true);
+		oauth2.setDefaultClientRegistrationId("keycloak");
 		return WebClient.builder()
 			.filter(oauth2)
 			.build();
