@@ -1,2 +1,10 @@
+
 server:
   port: 8081
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://idp:9999/auth/realms/demo
