@@ -13,5 +13,6 @@
         <module>user</module>
         <module>message</module>
         <module>inbox</module>
+        <module>gateway</module>
     </modules>
 </project>
