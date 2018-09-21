@@ -22,6 +22,7 @@ public class SecurityConfig {
 				.and()
 			.httpBasic().and()
 			.oauth2Client().and()
+			.oauth2Login().and()
 			.formLogin()
 				.loginPage("/login");
 		return http.build();

@@ -18,3 +18,6 @@ spring:
             client-id: spring-security
             client-secret: bfbd9f62-02ce-4638-a370-80d45514bd0a
             authorization_grant_type: client_credentials
+          keycloak:
+            client-id: spring-security
+            client-secret: bfbd9f62-02ce-4638-a370-80d45514bd0a
