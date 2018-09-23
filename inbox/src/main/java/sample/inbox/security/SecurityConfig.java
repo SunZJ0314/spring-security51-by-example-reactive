@@ -21,6 +21,7 @@ public class SecurityConfig {
 				.anyExchange().authenticated()
 				.and()
 			.httpBasic().and()
+			.oauth2Client().and()
 			.formLogin()
 				.loginPage("/login");
 		return http.build();
