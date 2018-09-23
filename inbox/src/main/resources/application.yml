@@ -3,8 +3,8 @@ logging:
     reator:
       netty:
         channel: DEBUG
-users-url: http://localhost:8081/users
-messages-url: http://localhost:8082/messages
+users-url: http://localhost:9090/users
+messages-url: http://localhost:9090/messages
 spring:
   security:
     oauth2:
