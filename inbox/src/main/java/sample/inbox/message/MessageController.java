@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
  * @author Rob Winch
  */
 @Controller
-@RequestMapping("/messages")
+@RequestMapping("/home")
 public class MessageController {
 	private final MessageService messages;
 
@@ -38,6 +38,6 @@ public class MessageController {
 	Mono<String> deleteById(@PathVariable String id) {
 		return this.messages
 			.deleteById(id)
-			.thenReturn("redirect:/messages/inbox?deleted");
+			.thenReturn("redirect:/home/inbox?deleted");
 	}
 }

@@ -22,8 +22,8 @@ public class MessageController {
 	}
 
 	@GetMapping("/inbox")
-	Flux<Message> inbox(@RequestHeader(name = "user-id") String currentUserId) {
-		return this.messages.findByTo(currentUserId);
+	Flux<Message> inbox() {
+		return this.messages.findByTo("1");
 	}
 
 	@GetMapping("/{id}")

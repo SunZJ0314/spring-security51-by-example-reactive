@@ -1,16 +1,17 @@
 package sample.gateway;
 
-import org.springframework.security.oauth2.jwt.Jwt;
-import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
-import org.springframework.stereotype.Component;
-import org.springframework.web.server.ServerWebExchange;
-import org.springframework.web.server.WebFilter;
-import org.springframework.web.server.WebFilterChain;
-import reactor.core.publisher.Mono;
+//import org.springframework.security.oauth2.jwt.Jwt;
+//import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
+//import org.springframework.stereotype.Component;
+//import org.springframework.web.server.ServerWebExchange;
+//import org.springframework.web.server.WebFilter;
+//import org.springframework.web.server.WebFilterChain;
+//import reactor.core.publisher.Mono;
 
 /**
  * @author Rob Winch
  */
+/*
 @Component
 public class IdFilter implements WebFilter {
 
@@ -45,4 +46,4 @@ public class IdFilter implements WebFilter {
 				.request(r -> r.header(USER_ID_HEADER_NAME, userId))
 				.build();
 	}
-}
+}*/

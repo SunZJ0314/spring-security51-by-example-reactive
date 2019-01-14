@@ -1,23 +1,11 @@
 logging:
   level:
+    root: DEBUG
     reator:
       netty:
         channel: DEBUG
+    org:
+      springframework:
+        web: DEBUG
 users-url: http://localhost:9090/users
 messages-url: http://localhost:9090/messages
-spring:
-  security:
-    oauth2:
-      client:
-        provider:
-          keycloak:
-            issuer-uri: http://idp:9999/auth/realms/demo
-        registration:
-          keycloak-client:
-            provider: keycloak
-            client-id: spring-security
-            client-secret: bfbd9f62-02ce-4638-a370-80d45514bd0a
-            authorization_grant_type: client_credentials
-          keycloak:
-            client-id: spring-security
-            client-secret: bfbd9f62-02ce-4638-a370-80d45514bd0a

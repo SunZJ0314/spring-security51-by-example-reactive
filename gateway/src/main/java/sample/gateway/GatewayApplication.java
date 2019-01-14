@@ -19,6 +19,8 @@ public class GatewayApplication {
 						.uri("http://localhost:8081"))
 				.route("messages", r -> r.path("/messages/**")
 						.uri("http://localhost:8082"))
+				.route("inbox", r -> r.path("/**")
+						.uri("http://localhost:8080"))
 				.build();
 		//@formatter:on
 	}
