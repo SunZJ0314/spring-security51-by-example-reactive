@@ -29,6 +29,7 @@ public class WebClientUserService implements UserService {
 	}
 
 	public Mono<User> findByEmail(String email) {
+		System.out.println("###################################################");
 		return this.webClient.get()
 				.uri(this.usersUrl + "/?email={email}", email)
 				.retrieve()

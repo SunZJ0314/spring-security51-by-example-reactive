@@ -6,6 +6,21 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title>Please Log In</title>
+	<script type="text/javascript">
+	function ajaxLogin() {
+		let username = document.getElementById('username').value;
+		let password = document.getElementById('password').value;
+		const data = new URLSearchParams();
+		data.append('username', username);
+		data.append('password', password);
+		return fetch('http://localhost:9090/login',{
+			method: 'post',
+			body: data
+		}).then(result => {
+			console.log(result);
+		});
+	}
+	</script>
 </head>
 <body>
 <div class="container"
@@ -44,7 +59,7 @@
 				   required>
 		</div>
 		<button class="btn btn-primary"
-				type="submit">Sign in</button>
+				type="button" onClick="ajaxLogin();">Sign in</button>
 	</form>
 	<a th:href="@{/oauth2/authorization/keycloak}">SSO</a>
 </div>

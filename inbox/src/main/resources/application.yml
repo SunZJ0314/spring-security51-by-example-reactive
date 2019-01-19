@@ -1,11 +1,12 @@
 logging:
   level:
-    root: DEBUG
+    root: TRACE
     reator:
       netty:
         channel: DEBUG
     org:
       springframework:
         web: DEBUG
+        security: DEBUG
 users-url: http://localhost:9090/users
 messages-url: http://localhost:9090/messages

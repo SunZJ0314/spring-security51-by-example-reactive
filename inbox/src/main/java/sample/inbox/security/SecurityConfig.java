@@ -16,14 +16,16 @@ public class SecurityConfig {
 	@Bean
 	SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
 		http
+			.headers().frameOptions().disable()
+			.and()
 			.csrf().disable()
 			.authorizeExchange()
 				.pathMatchers("/webjars/**", "/users/signup", "/login").permitAll()
 				.anyExchange().authenticated()
 				.and()
 			.httpBasic().and()
-			.formLogin();
-//				.loginPage("/login");
+			.formLogin()
+				.loginPage("/login");
 		return http.build();
 	}
 
